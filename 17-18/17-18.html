@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">    
+    <title>IFE ECMAScript</title>
+</head>
+<body>        
+    <input id="first-number" type="text" placeholder="第一个数字">
+    <input id="second-number" type="text" placeholder="第二个数字">
+    <button id="add-btn">加</button>
+    <button id="minus-btn">减</button>
+    <button id="times-btn">乘</button>
+    <button id="divide-btn">除</button>
+    <p id="result">运算结果</p>
+    <script>
+
+            function isNUm(flag){
+                var a = Number(document.getElementById("first-number").value);
+                var b = Number(document.getElementById("second-number").value);
+                if(!isNaN(a) && !isNaN(b)){
+                    switch(flag){
+                        case'+':return a+b;break;
+                        case'-':return a-b;break;
+                        case'*':return a*b;break;
+                        case'/':if(b==0) {return "除数不应该为0";} else
+                        {return a/b;}break;
+                    }
+                }else{
+                    console.log("两个框必须数字！");
+                    return "两个框必须数字！"
+                }
+            }
+
+        document.getElementById("add-btn").onclick=function(){
+            document.getElementById("result").innerHTML=isNUm('+');
+        }
+        
+    	document.getElementById("minus-btn").onclick=function(){
+            document.getElementById("result").innerHTML=isNUm('-');
+        }
+        
+    	document.getElementById("times-btn").onclick=function(){
+            document.getElementById("result").innerHTML=isNUm('*');
+        }
+        
+    	document.getElementById("divide-btn").onclick=function(){
+            
+            document.getElementById("result").innerHTML=isNUm('/');
+    	}
+        
+    </script>
+</body>
+</html>
